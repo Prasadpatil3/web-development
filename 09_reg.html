@@ -1,44 +1,182 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        h2 {
+            color: #1e293b;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #475569;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="password"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+            color: #334155;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .radio-group label,
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            color: #334155;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+
+        .radio-group input,
+        .checkbox-group input {
+            margin-right: 6px;
+            accent-color: #3b82f6;
+            cursor: pointer;
+            width: auto;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: #2563eb;
+        }
+    </style>
 </head>
 
 <body>
 
-<h2>Employee Registration</h2>
+<div class="container">
+    <h2>Employee Registration</h2>
 
-<form>
+    <form action="#">
 
-Name:<br>
-<input type="text"><br><br>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter full name">
+        </div>
 
-Email:<br>
-<input type="text"><br><br>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" placeholder="Enter email address">
+        </div>
 
-Password:<br>
-<input type="password"><br><br>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Create a password">
+        </div>
 
-Gender:<br>
-<input type="radio" name="g">Male
-<input type="radio" name="g">Female<br><br>
+        <div class="form-group">
+            <label>Gender</label>
+            <div class="radio-group">
+                <label><input type="radio" name="g" value="male"> Male</label>
+                <label><input type="radio" name="g" value="female"> Female</label>
+            </div>
+        </div>
 
-Skills:<br>
-<input type="checkbox">HTML
-<input type="checkbox">CSS<br><br>
+        <div class="form-group">
+            <label>Skills</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" value="html"> HTML</label>
+                <label><input type="checkbox" value="css"> CSS</label>
+            </div>
+        </div>
 
-Department:<br>
-<select>
-<option>IT</option>
-<option>HR</option>
-<option>Finance</option>
-</select><br><br>
+        <div class="form-group">
+            <label for="department">Department</label>
+            <select id="department">
+                <option value="" disabled selected>Select department</option>
+                <option value="IT">IT</option>
+                <option value="HR">HR</option>
+                <option value="Finance">Finance</option>
+            </select>
+        </div>
 
-Address:<br>
-<textarea></textarea><br><br>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <textarea id="address" placeholder="Enter complete address"></textarea>
+        </div>
 
-<input type="submit" value="Submit">
+        <input type="submit" class="submit-btn" value="Submit Registration">
 
-</form>
+    </form>
+</div>
 
 </body>
 </html>
