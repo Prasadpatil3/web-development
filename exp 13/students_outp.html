@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Dashboard</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background: linear-gradient(to right, #667eea, #764ba2);
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .container{
+            width:75%;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        h2{
+            text-align:center;
+            margin-bottom:25px;
+            color:#333;
+            font-size:32px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            overflow:hidden;
+            border-radius:10px;
+        }
+
+        th{
+            background:#222;
+            color:white;
+            padding:15px;
+            font-size:18px;
+        }
+
+        td{
+            padding:14px;
+            text-align:center;
+            font-size:17px;
+            transition:0.3s;
+        }
+
+        tr:nth-child(even){
+            background:#f2f2f2;
+        }
+
+        tr:hover{
+            background:#e6f7ff;
+            transform:scale(1.01);
+        }
+
+        .pass{
+            color:green;
+            font-weight:bold;
+        }
+
+        .fail{
+            color:red;
+            font-weight:bold;
+        }
+
+        .gradeA{
+            color:#0066ff;
+            font-weight:bold;
+        }
+
+        .gradeB{
+            color:#009933;
+            font-weight:bold;
+        }
+
+        .gradeC{
+            color:#ff9900;
+            font-weight:bold;
+        }
+
+        .gradeF{
+            color:red;
+            font-weight:bold;
+        }
+
+        .topper{
+            background:gold !important;
+            font-weight:bold;
+        }
+
+        .footer{
+            text-align:center;
+            margin-top:20px;
+            color:#555;
+            font-size:14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>📘 Student Performance Dashboard</h2>
+
+        <table border="0">
+
+            <tr>
+                <th>Name</th>
+                <th>Marks</th>
+                <th>Result</th>
+                <th>Grade</th>
+            </tr>
+
+            <tr>
+                <td>Rahul</td>
+                <td>76</td>
+                <td class="pass">Pass</td>
+                <td class="gradeB">B</td>
+            </tr>
+
+            <tr>
+                <td>Priya</td>
+                <td>88</td>
+                <td class="pass">Pass</td>
+                <td class="gradeB">B</td>
+            </tr>
+
+            <tr>
+                <td>Amit</td>
+                <td>47</td>
+                <td class="pass">Pass</td>
+                <td class="gradeC">C</td>
+            </tr>
+
+            <tr class="topper">
+                <td>🏆 Sneha</td>
+                <td>93</td>
+                <td class="pass">Pass</td>
+                <td class="gradeA">A</td>
+            </tr>
+
+            <tr>
+                <td>Rohan</td>
+                <td>64</td>
+                <td class="pass">Pass</td>
+                <td class="gradeC">C</td>
+            </tr>
+
+        </table>
+
+        <div class="footer">
+            Designed for Student Result Visualization
+        </div>
+
+    </div>
+
+</body>
+</html>
