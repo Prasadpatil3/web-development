@@ -5,48 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Form</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Outfit', sans-serif;
         }
 
         body {
-            background-color: #f0f4f8;
+            margin: 0;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             padding: 20px;
         }
 
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .container {
-            background: #ffffff;
-            padding: 30px 40px;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
             width: 100%;
-            max-width: 450px;
+            max-width: 480px;
+            color: #ffffff;
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h2 {
-            color: #1e293b;
             text-align: center;
-            margin-bottom: 25px;
-            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            font-size: 32px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            color: #475569;
-            font-weight: 600;
-            font-size: 14px;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .form-group input[type="text"],
@@ -54,31 +83,45 @@
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            font-size: 15px;
-            color: #334155;
-            transition: all 0.3s ease;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            font-size: 16px;
+            color: white;
             outline: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: #ffffff;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4), inset 0 2px 4px rgba(0,0,0,0.05);
+            transform: translateY(-2px);
+        }
+
+        .form-group select option {
+            background: #23a6d5;
+            color: white;
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 80px;
+            min-height: 100px;
         }
 
         .radio-group,
         .checkbox-group {
             display: flex;
-            gap: 15px;
+            gap: 25px;
             align-items: center;
         }
 
@@ -86,36 +129,52 @@
         .checkbox-group label {
             display: flex;
             align-items: center;
-            font-weight: normal;
-            color: #334155;
+            font-weight: 400;
             cursor: pointer;
             margin-bottom: 0;
+            transition: transform 0.2s;
+        }
+
+        .radio-group label:hover,
+        .checkbox-group label:hover {
+            transform: translateX(3px);
         }
 
         .radio-group input,
         .checkbox-group input {
-            margin-right: 6px;
-            accent-color: #3b82f6;
+            margin-right: 8px;
+            accent-color: #e73c7e;
             cursor: pointer;
-            width: auto;
+            width: 18px;
+            height: 18px;
         }
 
         .submit-btn {
             width: 100%;
-            background: #3b82f6;
-            color: white;
+            background: rgba(255, 255, 255, 0.95);
+            color: #e73c7e;
             border: none;
-            padding: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 6px;
+            padding: 16px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 12px;
             cursor: pointer;
-            transition: background 0.3s ease;
-            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            margin-top: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
 
         .submit-btn:hover {
-            background: #2563eb;
+            background: #ffffff;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+            color: #ee7752;
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
         }
     </style>
 </head>
@@ -123,23 +182,23 @@
 <body>
 
 <div class="container">
-    <h2>Employee Registration</h2>
+    <h2>Employee Portal</h2>
 
     <form action="#">
 
         <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Enter full name">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="John Doe">
         </div>
 
         <div class="form-group">
-            <label for="email">Email</label>
-            <input type="text" id="email" placeholder="Enter email address">
+            <label for="email">Email Address</label>
+            <input type="text" id="email" placeholder="john@company.com">
         </div>
 
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Create a password">
+            <input type="password" id="password" placeholder="••••••••">
         </div>
 
         <div class="form-group">
@@ -151,7 +210,7 @@
         </div>
 
         <div class="form-group">
-            <label>Skills</label>
+            <label>Core Skills</label>
             <div class="checkbox-group">
                 <label><input type="checkbox" value="html"> HTML</label>
                 <label><input type="checkbox" value="css"> CSS</label>
@@ -161,19 +220,19 @@
         <div class="form-group">
             <label for="department">Department</label>
             <select id="department">
-                <option value="" disabled selected>Select department</option>
-                <option value="IT">IT</option>
-                <option value="HR">HR</option>
+                <option value="" disabled selected>Choose your department...</option>
+                <option value="IT">IT & Engineering</option>
+                <option value="HR">Human Resources</option>
                 <option value="Finance">Finance</option>
             </select>
         </div>
 
         <div class="form-group">
-            <label for="address">Address</label>
-            <textarea id="address" placeholder="Enter complete address"></textarea>
+            <label for="address">Residential Address</label>
+            <textarea id="address" placeholder="Enter your full address here..."></textarea>
         </div>
 
-        <input type="submit" class="submit-btn" value="Submit Registration">
+        <input type="submit" class="submit-btn" value="Register Now">
 
     </form>
 </div>
