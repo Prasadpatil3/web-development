@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Travel Agency</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #333;
+        }
+
+        header {
+            background: #0d1b2a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background: #1b263b;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            color: white;
+            padding: 15px 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav button:hover {
+            background: #415a77;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 40px;
+            animation: fade 0.5s;
+        }
+
+        .active {
+            display: block;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .hero {
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 250px;
+        }
+
+        footer {
+            background: #0d1b2a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: #0d1b2a;
+        }
+
+        p {
+            line-height: 1.7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Digital Travel Agency</h1>
+        <p>Your Smart Partner For Amazing Trips</p>
+    </header>
+
+    <nav>
+        <button onclick="showTab('home')">Home</button>
+        <button onclick="showTab('services')">Services</button>
+        <button onclick="showTab('packages')">Packages</button>
+        <button onclick="showTab('contact')">Contact</button>
+    </nav>
+
+    <!-- HOME TAB -->
+    <div id="home" class="tab-content active">
+        <h2>Welcome to Digital Travel Agency</h2>
+
+        <p>
+            We help travelers explore beautiful destinations with smart planning,
+            hotel booking, travel guides, food recommendations and affordable tour packages.
+        </p>
+
+        <div class="hero"></div>
+
+        <div class="card-container">
+            <div class="card">
+                <h3>Easy Booking</h3>
+                <p>Book your dream vacation quickly with our digital booking system.</p>
+            </div>
+
+            <div class="card">
+                <h3>Affordable Tours</h3>
+                <p>Enjoy budget-friendly domestic and international packages.</p>
+            </div>
+
+            <div class="card">
+                <h3>24/7 Support</h3>
+                <p>Our support team is available anytime for travel assistance.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES TAB -->
+    <div id="services" class="tab-content">
+        <h2>Our Services</h2>
+
+        <div class="card-container">
+            <div class="card">
+                <h3>Hotel Booking</h3>
+                <p>Find luxury and budget hotels for your stay.</p>
+            </div>
+
+            <div class="card">
+                <h3>Travel Planning</h3>
+                <p>Get day-wise travel itineraries for your destination.</p>
+            </div>
+
+            <div class="card">
+                <h3>Food Recommendations</h3>
+                <p>Discover famous restaurants and local food spots.</p>
+            </div>
+
+            <div class="card">
+                <h3>Transportation</h3>
+                <p>Book flights, buses and rental vehicles easily.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PACKAGES TAB -->
+    <div id="packages" class="tab-content">
+        <h2>Popular Packages</h2>
+
+        <div class="card-container">
+            <div class="card">
+                <h3>Goa Tour</h3>
+                <p>4 Days / 3 Nights with beach resort stay.</p>
+            </div>
+
+            <div class="card">
+                <h3>Manali Adventure</h3>
+                <p>Snow activities, mountain camping and sightseeing.</p>
+            </div>
+
+            <div class="card">
+                <h3>Dubai Vacation</h3>
+                <p>Luxury international package with city tour.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT TAB -->
+    <div id="contact" class="tab-content">
+        <h2>Contact Us</h2>
+
+        <div class="card">
+            <p><strong>Agency Name:</strong> Digital Travel Agency</p>
+            <br>
+
+            <p>
+                <strong>Address:</strong><br>
+                Kasaba Bawada,<br>
+                Kolhapur, Maharashtra 416006
+            </p>
+
+            <br>
+
+            <p>
+                <strong>Phone:</strong> +91 7666031398
+            </p>
+
+            <br>
+
+            <p>
+                <strong>Email:</strong> digitaltravelagency@gmail.com
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Digital Travel Agency | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function showTab(tabId) {
+
+            let tabs = document.getElementsByClassName("tab-content");
+
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
+            }
+
+            document.getElementById(tabId).classList.add("active");
+        }
+    </script>
+
+</body>
+
+</html>
